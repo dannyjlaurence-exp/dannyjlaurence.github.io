@@ -14,26 +14,6 @@ const SitemapPlugin = require('sitemap-webpack-plugin').default;
 
 const config = require('./site.config');
 
-// Hot module replacement
-const hmr = new webpack.HotModuleReplacementPlugin();
-
-// Optimize CSS assets
-// const optimizeCss = new OptimizeCssAssetsPlugin({
-//   assetNameRegExp: /\.css$/g,
-//   cssProcessor: cssnano,
-//   cssProcessorPluginOptions: {
-//     preset: [
-//       'default',
-//       {
-//         discardComments: {
-//           removeAll: true,
-//         },
-//       },
-//     ],
-//   },
-//   canPrint: true,
-// });
-
 // Generate robots.txt
 const robots = new RobotstxtPlugin({
   sitemap: `${config.site_url}/sitemap.xml`,
@@ -55,14 +35,16 @@ const cssExtract = new MiniCssExtractPlugin({
 const paths = [];
 const generateHTMLPlugins = () => glob.sync('./src/**/*.html').map((dir) => {
   const filename = path.basename(dir);
-
+  const nakedFilename = path.parse(filename).name;
   if (filename !== '404.html') {
     paths.push(filename);
   }
 
   return new HTMLWebpackPlugin({
-    filename,
+    inject: true,
     template: path.join(config.root, config.paths.src, filename),
+    filename,
+    chunks: [nakedFilename],
     meta: {
       viewport: config.viewport,
     },
@@ -140,5 +122,4 @@ module.exports = [
   config.env === 'production' && sitemap,
   config.googleAnalyticsUA && google,
   webpackBar,
-  config.env === 'development' && hmr,
 ].filter(Boolean);
