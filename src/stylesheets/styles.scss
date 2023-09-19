@@ -1,3 +1,89 @@
+@font-face {
+  font-family: "Inclusive Sans";
+  src: url("../fonts/InclusiveSans-Italic.woff2") format("woff2"),
+    url("../fonts/InclusiveSans-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inclusive Sans";
+  src: url("../fonts/InclusiveSans-Regular.woff2") format("woff2"),
+    url("../fonts/InclusiveSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*
+  Main color: #5C3DD9
+  Highlight color: #9B45F8
+  Tertiary highlight color: #45AFF8
+*/
+
 body {
-  color: blue;
+  font-family: "Inclusive Sans", sans-serif;
+  color: #5c3dd9;
+  background-color: #dfdede;
+  margin: 0;
+  width: 100%;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+#nav {
+  background-color: #45aff8;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#nav * {
+  display: inline;
+}
+
+#nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+#nav li {
+  margin-left: 20px;
+}
+
+#nav li a {
+  color: black;
+  text-decoration: none;
+}
+
+#nav li a:hover {
+  color: #9b45f8;
+}
+
+.fake-logo {
+  background: #9b45f8;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 15px;
+  line-height: 40px;
+  text-align: center;
+}
+
+#banner {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: 12% 12%;
+}
+
+#content {
+  background-color: #e6f5fe;
+  padding: 10px;
 }

@@ -116,14 +116,14 @@ const imageLoader = {
   },
 };
 
-const images = {
-  test: /\.(gif|png|jpe?g|webp|svg)$/i,
-  exclude: /fonts/,
-  use: [
-    'file-loader?name=images/[name].[hash].[ext]',
-    config.env === 'production' ? imageLoader : null,
-  ].filter(Boolean),
-};
+// const images = {
+//   test: /\.(gif|png|jpe?g|webp|svg)$/i,
+//   exclude: /fonts/,
+//   use: [
+//     'file-loader?name=images/[name].[hash].[ext]',
+//     config.env === 'production' ? imageLoader : null,
+//   ].filter(Boolean),
+// };
 
 // Font loaders
 const fonts = {
@@ -160,7 +160,7 @@ module.exports = [
   css,
   sass,
   less,
-  images,
+  // images,
   fonts,
   videos,
 ];
