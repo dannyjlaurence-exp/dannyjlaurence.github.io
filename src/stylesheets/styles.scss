@@ -87,3 +87,19 @@ p {
   background-color: #e6f5fe;
   padding: 10px;
 }
+
+#semester-card-holder,
+#professional-card-holder {
+  display: flex;
+}
+
+.card {
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #a6a6a6;
+  border-radius: 25px;
+}
+
+.card h3 {
+  margin-top: 0;
+}
